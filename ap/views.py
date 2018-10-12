@@ -2,4 +2,4 @@ from django.shortcuts import render
 
 # Create your views here.
 def welcome(request):
-    pass
+     return render(request, 'welcome.html')
