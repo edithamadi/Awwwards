@@ -27,6 +27,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Application definition
 
 INSTALLED_APPS = [
+    'bootstrap3',
     'bootstrap4',
     'ap.apps.ApConfig',
     'django.contrib.admin',
@@ -49,7 +50,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'pro.urls'
-
+LOGIN_REDIRECT_URL='welcome'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
