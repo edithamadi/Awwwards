@@ -7,7 +7,7 @@ class Projects(models.Model):
     title = models.TextField(max_length = 20, default="title here")
     landing_page_image = models.ImageField(upload_to = 'images/')
     description = models.TextField()
-    link_to_live_site = models.URLField(max_length=250)
+    # link_to_live_site = models.URLField(max_length=250,default = )
 
     def __str__(self):
         return self.user.username
