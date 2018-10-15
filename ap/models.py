@@ -7,14 +7,15 @@ class Projects(models.Model):
     title = models.TextField(max_length = 20, default="title here")
     landing_page_image = models.ImageField(upload_to = 'images/')
     description = models.TextField()
+    link_to_live_site = models.URLField(max_length=250)
 
     def __str__(self):
         return self.user.username
 
-    def save_profile(self):
+    def save_projects(self):
         self.save()
 
-    def delete_profile(self):
+    def delete_projects(self):
         self.delete()
 
 @classmethod
@@ -44,3 +45,5 @@ class Profile(models.Model):
     def search_profile(cls , search_term):
         profiles = cls.objects.filter( first_name__icontains = search_term ) 
         return profiles
+
+    
