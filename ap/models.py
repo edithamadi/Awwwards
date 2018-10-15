@@ -15,4 +15,3 @@ class Profile(models.Model):
     bio = models.CharField(max_length=200)
     projects = models.ForeignKey(Projects, null=True)
     user_contact_info=models.IntegerField(default=0)
-
