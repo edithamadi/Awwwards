@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 
 class Projects(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE,primary_key = True)
-    title = models.TextField(max_length = 20, default="title")
+    title = models.TextField(max_length = 20, default="title here")
     landing_page_image = models.ImageField(upload_to = 'images/')
     description = models.TextField()
 
@@ -31,3 +31,16 @@ class Profile(models.Model):
     projects = models.ForeignKey(Projects, null=True)
     user_contact_info=models.IntegerField(default=0)
 
+    def __str__(self):
+      return self.user.username
+
+    def save_profile(self):
+       self.save()
+    
+    def delete_profile(self):
+       self.delete()
+
+    @classmethod
+    def search_profile(cls , search_term):
+        profiles = cls.objects.filter( first_name__icontains = search_term ) 
+        return profiles
