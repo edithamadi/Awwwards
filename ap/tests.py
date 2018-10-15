@@ -54,4 +54,13 @@ class ProjectsTestClass(TestCase):
     def test_instance(self):
         self.assertTrue(isinstance(self.projects, Projects))
 
+    def test_save_method(self):
+            """
+            Function testing that projects is being saved
+            """
+            self.projects.save_projects()
+            projects = Projects.objects.all()
+            self.assertTrue(len(projects) > 0)
+
+
 
