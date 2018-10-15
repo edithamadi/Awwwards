@@ -62,5 +62,21 @@ class ProjectsTestClass(TestCase):
             projects = Projects.objects.all()
             self.assertTrue(len(projects) > 0)
 
+    def test_delete_method(self):
+        """
+        Function testing that projects can be deleted
+        """
+        
+        self.projects.save_projects()
+        self.projects.delete_projects()
+
+    def search_projects(self):
+            """
+            Function to test if one can search a project
+            """
+            self.profile.search_projects()
+            first_name= self.profile.search_projects(self.projects.user)
+            projects = Projects.objects.get(user_id=self.projects.user)
+            self.assertTrue(first_name, projects)
 
 
